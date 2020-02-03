@@ -1,4 +1,4 @@
-**Project status: Functional - Testing in progress **
+**Project status: Functional - Testing in progress**
 
 
 # docker-tig-openwrt
