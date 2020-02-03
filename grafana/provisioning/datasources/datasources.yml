@@ -4,7 +4,7 @@ datasources:
 - name: raspberry
   type: influxdb
   access: proxy
-  url: https://myst:8086
+  url: http://myst:8086
   password: root
   user: root
   database: raspberry
@@ -26,7 +26,7 @@ datasources:
 - name: WRT1900ACS
   type: influxdb
   access: proxy
-  url: https://myst:8086
+  url: http://myst:8086
   password: root
   user: root
   database: WRT1900ACS

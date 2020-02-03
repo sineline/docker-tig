@@ -59,7 +59,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${WRT1900ACS}",
+          "datasource": "WRT1900ACS",
           "decimals": 0,
           "fill": 1,
           "id": 1,
@@ -214,7 +214,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${WRT1900ACS}",
+          "datasource": "WRT1900ACS",
           "fill": 1,
           "id": 2,
           "legend": {
@@ -375,7 +375,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${WRT1900ACS}",
+          "datasource": "WRT1900ACS",
           "fill": 1,
           "id": 6,
           "legend": {
@@ -614,7 +614,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${WRT1900ACS}",
+          "datasource": "WRT1900ACS",
           "fill": 1,
           "id": 7,
           "legend": {
@@ -863,7 +863,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${WRT1900ACS}",
+          "datasource": "WRT1900ACS",
           "fill": 1,
           "id": 3,
           "legend": {
@@ -1083,7 +1083,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${WRT1900ACS}",
+          "datasource": "WRT1900ACS",
           "fill": 1,
           "id": 4,
           "legend": {
@@ -1233,7 +1233,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${WRT1900ACS}",
+          "datasource": "WRT1900ACS",
           "fill": 1,
           "id": 5,
           "legend": {
@@ -1371,7 +1371,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${WRT1900ACS}",
+          "datasource": "WRT1900ACS",
           "fill": 1,
           "id": 8,
           "legend": {
@@ -1502,7 +1502,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${WRT1900ACS}",
+          "datasource": "WRT1900ACS",
           "fill": 1,
           "id": 9,
           "legend": {
@@ -1712,7 +1712,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${WRT1900ACS}",
+        "datasource": "WRT1900ACS",
         "hide": 0,
         "includeAll": true,
         "label": "Host",
@@ -1732,7 +1732,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${WRT1900ACS}",
+        "datasource": "WRT1900ACS",
         "hide": 0,
         "includeAll": true,
         "label": "Interface",
@@ -1752,7 +1752,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${WRT1900ACS}",
+        "datasource": "WRT1900ACS",
         "hide": 0,
         "includeAll": true,
         "label": "Wi-Fi Interface",
