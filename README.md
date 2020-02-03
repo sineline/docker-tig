@@ -11,7 +11,7 @@ Docker will set up the databases and dashboard "LEDE Router": https://grafana.co
 **prerequisites**
 
 make sure docker runs on your Raspberry Pi and the router sends collectd data to the influxdb server through port 25826.
-Also ensure types.db matches your configuration and replace it in the influxdn/collectd/RouterTypes.db
+Also ensure types.db from your router matches influxdn/collectd/RouterTypes.db before launching the docker container (This may not be necessary but its strongly encouraged)
 
 (For a new raspberry Pi flash SD card and install hypriot on your raspberry pi first: `http://blog.hypriot.com/post/releasing-HypriotOS-1-8/`)
 
