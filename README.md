@@ -3,6 +3,9 @@
 
 # docker-tig-openwrt
 TIG stack (telegraf, influxdb, grafana) on Raspberry Pi using docker with some tweaks to collect stats from a router running openwrt.
+
+Docker will set up the databases and dashboard "LEDE Router": https://grafana.com/grafana/dashboards/3484 
+
 ***Originally based in ratio91's docker-tig repository  .***
 
 **prerequisites**
