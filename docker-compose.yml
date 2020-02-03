@@ -9,14 +9,15 @@ services:
    volumes:
     - ./influxdb/data:/var/lib/influxdb
     - ./influxdb/config/:/etc/influxdb/
-    - ./influxdb/init.db/:/docker-entrypoint-initdb.d/
     - ./influxdb/collectd/:/usr/local/share/collectd/
    ports:
     - "8082:8082"
     - "8086:8086" 
     - "8089:8089"
-    - "25826:25826"
-   
+   environment:
+    - PRE_CREATE_DB="WRT1900ACS"
+    - PRE_CREATE_DB="Raspberry"
+    - PRE_CREATE_DB="melee"
    restart: always
 
  telegraf:
