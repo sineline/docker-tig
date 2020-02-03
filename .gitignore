@@ -1,2 +1,2 @@
 grafana/grafana.db
-influxdb/data/meta/meta.db
+influxdb/data/*
