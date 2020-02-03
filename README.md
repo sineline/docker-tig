@@ -1,3 +1,6 @@
+**Project status: not working - Work in progress**
+
+
 # docker-tig
 TIG stack (telegraf, influxdb, grafana) on Raspberry Pi using docker with some tweaks to collect stats from a router running openwrt.
 
