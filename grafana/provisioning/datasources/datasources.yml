@@ -1,9 +1,5 @@
 apiVersion: 1
-
-deleteDatasources:
-  - name: raspberry
-    orgId: 1
-
+ 
 datasources:
 - name: raspberry
   type: influxdb
@@ -12,6 +8,28 @@ datasources:
   password: root
   user: root
   database: raspberry
+  basicAuth: false
+  basicAuthUser:
+  basicAuthPassword:
+  withCredentials:
+  isDefault: false
+  jsonData:
+     tlsAuth: false
+     tlsAuthWithCACert: false
+  secureJsonData:
+    tlsCACert: ""
+    tlsClientCert: ""
+    tlsClientKey: ""
+  version: 1
+  editable: true
+
+- name: WRT1900ACS
+  type: influxdb
+  access: proxy
+  url: https://myst:8086
+  password: root
+  user: root
+  database: WRT1900ACS
   basicAuth: false
   basicAuthUser:
   basicAuthPassword:

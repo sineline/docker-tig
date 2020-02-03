@@ -27,6 +27,7 @@ services:
     - ./telegraf/:/etc/telegraf/
     - /run/docker.sock:/var/run/docker.sock
     - /proc:/host/proc:ro
+    - ./influxdb/collectd/:/usr/local/share/collectd/
    environment:
     - HOST_PROC=/host/proc
    network_mode: "host"
@@ -39,6 +40,8 @@ services:
     - "3000:3000"
    volumes:
     - ./grafana:/var/lib/grafana
+    - ./grafana/dashboards/:/var/lib/grafana/dashboards/
+    - ./grafana/provisioning/:/etc/grafana/provisioning/
    user: "1000"
    links: 
     - influxdb
