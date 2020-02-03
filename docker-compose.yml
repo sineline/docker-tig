@@ -9,32 +9,36 @@ services:
    volumes:
     - ./influxdb/data:/var/lib/influxdb
     - ./influxdb/config/:/etc/influxdb/
+    - ./influxdb/init.db/:/docker-entrypoint-initdb.d/
+    - ./influxdb/collectd/:/usr/local/share/collectd/
    ports:
-   - "8082:8082"
-   - "8086:8086"
-   - "8089:8089"
+    - "8082:8082"
+    - "8086:8086" 
+    - "8089:8089"
+    - "25826:25826"
+   
    restart: always
 
  telegraf:
    image: arm32v7/telegraf
    container_name: telegraf
    volumes: 
-   - ./telegraf/:/etc/telegraf/
-   - /run/docker.sock:/var/run/docker.sock
-   - /proc:/host/proc:ro
+    - ./telegraf/:/etc/telegraf/
+    - /run/docker.sock:/var/run/docker.sock
+    - /proc:/host/proc:ro
    environment:
-   - HOST_PROC=/host/proc
+    - HOST_PROC=/host/proc
    network_mode: "host"
    restart: always
 
- grafana:
+ grafana: 
    image: proxx/grafana-armv7
    container_name: grafana
    ports:
-   - "3000:3000"
+    - "3000:3000"
    volumes:
-   - ./grafana:/var/lib/grafana
+    - ./grafana:/var/lib/grafana
    user: "1000"
    links: 
-   - influxdb
+    - influxdb
    restart: always
