@@ -6,7 +6,7 @@ TIG stack (telegraf, influxdb, grafana) on Raspberry Pi using docker with some t
 
 Docker will set up the databases and dashboard "LEDE Router": https://grafana.com/grafana/dashboards/3484 
 
-***Originally based in ratio91's docker-tig repository  .***
+***Based in ratio91's docker-tig repository.***
 
 **prerequisites**
 
