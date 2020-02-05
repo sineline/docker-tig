@@ -33,6 +33,12 @@
       "id": "singlestat",
       "name": "Singlestat",
       "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
     }
   ],
   "annotations": {
@@ -53,16 +59,243 @@
   "gnetId": 10488,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1580939527905,
+  "iteration": 1580941669057,
   "links": [],
   "panels": [
+    {
+      "cacheTimeout": null,
+      "columns": [],
+      "datasource": "${DS_WRT1900ACS}",
+      "description": "",
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 11,
+        "w": 23,
+        "x": 0,
+        "y": 0
+      },
+      "id": 145,
+      "links": [],
+      "options": {},
+      "pageSize": null,
+      "pluginVersion": "6.1.6",
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "link": false,
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "UP/DOWN",
+          "colorMode": "value",
+          "colors": [
+            "#37872D",
+            "#37872D",
+            "#C4162A"
+          ],
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "ifOperStatus",
+          "thresholds": [
+            "1",
+            "2"
+          ],
+          "type": "string",
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "UP",
+              "value": "1"
+            },
+            {
+              "text": "DOWN",
+              "value": "2"
+            },
+            {
+              "text": "TEST",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "alias": "Link Speed",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "ifSpeed",
+          "thresholds": [],
+          "type": "number",
+          "unit": "bps",
+          "valueMaps": [
+            {
+              "text": "100  MB",
+              "value": "10000000"
+            },
+            {
+              "text": "1 GB",
+              "value": "100000000"
+            },
+            {
+              "text": "10 GB",
+              "value": "1000000000"
+            }
+          ]
+        }
+      ],
+      "targets": [
+        {
+          "alias": "",
+          "groupBy": [
+            {
+              "params": [
+                "ifDescr"
+              ],
+              "type": "tag"
+            }
+          ],
+          "limit": "1",
+          "measurement": "interface",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "ifOperStatus"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "ifOperStatus"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifInDiscards"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifInErrors"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifInOctets"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifInUcastPkts"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifMtu"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifOutErrors"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifOutDiscards"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifSpeed"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifPhysAddress"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "ifLastChange"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Interface summary",
+      "transform": "table",
+      "transparent": true,
+      "type": "table"
+    },
     {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 11
       },
       "id": 26,
       "panels": [],
@@ -91,9 +324,9 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 24,
+        "w": 12,
         "x": 0,
-        "y": 1
+        "y": 12
       },
       "id": 28,
       "interval": null,
@@ -160,15 +393,9 @@
           ],
           "tags": [
             {
-              "key": "agent_host",
-              "operator": "=~",
-              "value": "/^$host$/"
-            },
-            {
-              "condition": "AND",
-              "key": "ifDescr",
-              "operator": "=~",
-              "value": "/^$interface$/"
+              "key": "type",
+              "operator": "=",
+              "value": "if_octets"
             }
           ]
         }
@@ -194,7 +421,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 3
+        "y": 14
       },
       "id": 81,
       "panels": [],
@@ -210,7 +437,6 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_WRT1900ACS}",
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -221,9 +447,9 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 24,
+        "w": 12,
         "x": 0,
-        "y": 4
+        "y": 15
       },
       "id": 49,
       "interval": null,
@@ -290,15 +516,9 @@
           ],
           "tags": [
             {
-              "key": "agent_host",
-              "operator": "=~",
-              "value": "/^$host$/"
-            },
-            {
-              "condition": "AND",
-              "key": "ifDescr",
-              "operator": "=~",
-              "value": "/^$interface$/"
+              "key": "type",
+              "operator": "=",
+              "value": "if_octets"
             }
           ]
         }
@@ -324,7 +544,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 17
       },
       "id": 2,
       "panels": [],
@@ -337,12 +557,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "${DS_WRT1900ACS}",
       "fill": 1,
       "gridPos": {
-        "h": 6,
-        "w": 24,
+        "h": 8,
+        "w": 12,
         "x": 0,
-        "y": 7
+        "y": 18
       },
       "id": 14,
       "legend": {
@@ -384,14 +605,23 @@
             },
             {
               "params": [
+                "/^$interface$/"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
                 "null"
               ],
               "type": "fill"
             }
           ],
-          "measurement": "interface_rx_wrt",
+          "hide": false,
+          "measurement": "interface_tx_wrt",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT non_negative_derivative(mean(\"value\"), 1s) *8 AS \"out\" FROM \"interface_tx_wrt\" WHERE $timeFilter GROUP BY time($custominterval) fill(null)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -420,25 +650,13 @@
               },
               {
                 "params": [
-                  "in"
+                  "out"
                 ],
                 "type": "alias"
               }
             ]
           ],
-          "tags": [
-            {
-              "key": "agent_host",
-              "operator": "=~",
-              "value": "/^$host$/"
-            },
-            {
-              "condition": "AND",
-              "key": "ifDescr",
-              "operator": "=~",
-              "value": "/^$interface$/"
-            }
-          ]
+          "tags": []
         },
         {
           "alias": "$interface $col",
@@ -451,14 +669,23 @@
             },
             {
               "params": [
+                "/^$interface$/"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
                 "null"
               ],
               "type": "fill"
             }
           ],
-          "measurement": "interface_tx_wrt",
+          "hide": false,
+          "measurement": "interface_rx_wrt",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT non_negative_derivative(mean(\"value\"), 1s) *8 AS \"out\" FROM \"interface_tx_wrt\" WHERE $timeFilter GROUP BY time($custominterval) fill(null)",
+          "rawQuery": false,
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
@@ -493,19 +720,7 @@
               }
             ]
           ],
-          "tags": [
-            {
-              "key": "agent_host",
-              "operator": "=~",
-              "value": "/^$host$/"
-            },
-            {
-              "condition": "AND",
-              "key": "ifDescr",
-              "operator": "=~",
-              "value": "/^$interface$/"
-            }
-          ]
+          "tags": []
         }
       ],
       "thresholds": [],
@@ -550,7 +765,7 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "1m",
   "schemaVersion": 18,
   "style": "dark",
   "tags": [],
@@ -686,8 +901,8 @@
     ]
   },
   "time": {
-    "from": "2020-02-05T13:53:57.353Z",
-    "to": "2020-02-05T14:55:56.610Z"
+    "from": "now-24h",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -715,7 +930,7 @@
     ]
   },
   "timezone": "",
-  "title": "Network Interface Stats1",
+  "title": "Network Interface Stats",
   "uid": "VDwuaMSWz",
   "version": 3
 }
