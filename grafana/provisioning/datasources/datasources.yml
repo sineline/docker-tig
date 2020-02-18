@@ -44,3 +44,27 @@ datasources:
     tlsClientKey: ""
   version: 1
   editable: true
+
+- name: UBUNTU
+  type: influxdb
+  access: proxy
+  url: http://myst:8086
+  password: root
+  user: root
+  database: ubuntu
+  basicAuth: false
+  basicAuthUser:
+  basicAuthPassword:
+  withCredentials:
+  isDefault: true
+  jsonData:
+     tlsAuth: false
+     tlsAuthWithCACert: false
+  secureJsonData:
+    tlsCACert: ""
+    tlsClientCert: ""
+    tlsClientKey: ""
+  version: 1
+  editable: true
+
+
