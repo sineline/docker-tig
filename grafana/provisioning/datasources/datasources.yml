@@ -56,7 +56,7 @@ datasources:
   basicAuthUser:
   basicAuthPassword:
   withCredentials:
-  isDefault: true
+  isDefault: false
   jsonData:
      tlsAuth: false
      tlsAuthWithCACert: false
